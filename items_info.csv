@@ -1,0 +1,191 @@
+same_instructions,survey,survey_name,survey_citation
+,consent,Eligibility,
+,fluent,Eligibility,
+,english,Eligibility,
+,right_handed,Eligibility,
+,pregnant,Eligibility,
+,metal,Eligibility,
+,claustro,Eligibility,
+,psych_drugs,Eligibility,
+,psych_hospital,Eligibility,
+,medHistory,Eligibility,
+,drugAbuse,Eligibility,
+,alcAbuse_Treated,Eligibility,
+,fmri,Eligibility,
+,glasses,Eligibility,
+,contacts,Eligibility,
+,know_rx,Eligibility,
+,eyes_rx1,Eligibility,
+,eyes_rx2,Eligibility,
+,age,Demographics,
+,gender,Demographics,
+,weight,Demographics,
+,race,Demographics,
+,educ_self,Demographics,
+,collegeYear,Demographics,
+,abroad,Demographics,
+,usCitizen,Demographics,
+,international,Demographics,
+,relationship,Demographics,
+,educ_mother,Demographics,
+,educ_father,Demographics,
+,income,Demographics,
+1,ladder_community,MacArthur Scale of Subjective Social Status,"Adler, N. E., Boyce, T., Chesney, M. A., Cohen, S., Folkman, S., Kahn, R. L., & Syme, S. L. (1994). Socioeconomic status and health: The challenge of the gradient. American psychologist, 49(1), 15-24."
+1,ladder_pennAcademic,MacArthur Scale of Subjective Social Status,"Adler, N. E., Boyce, T., Chesney, M. A., Cohen, S., Folkman, S., Kahn, R. L., & Syme, S. L. (1994). Socioeconomic status and health: The challenge of the gradient. American psychologist, 49(1), 15-24."
+1,ladder_group,MacArthur Scale of Subjective Social Status,"Adler, N. E., Boyce, T., Chesney, M. A., Cohen, S., Folkman, S., Kahn, R. L., & Syme, S. L. (1994). Socioeconomic status and health: The challenge of the gradient. American psychologist, 49(1), 15-24."
+,ecig,Cigarette and e-cigarette use,"Centers for Disease Control and Prevention. (2022, March 14). National Youth Tobacco Survey (NYTS). Centers for Disease Control and Prevention. Retrieved July 11, 2022, from https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/index.htm "
+,cig,Cigarette and e-cigarette use,"Centers for Disease Control and Prevention. (2022, March 14). National Youth Tobacco Survey (NYTS). Centers for Disease Control and Prevention. Retrieved July 11, 2022, from https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/index.htm "
+,alc_use,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,alc_regret,Alcohol intentions and consequences,"Adapted from National Institute on Alcohol Abuse and Alcoholism (NIAAA). (N.d.). National Epidemiologic Survey on Alcohol and Related Conditions-III (NESARC-III). Rockville, MD: National Institutes of Health. Alcohol Use Disorder and Associated Disabilities Interview Schedule (AUDADIS-5), Section 2A - Alcohol Consumption"
+,alc_intent,Alcohol intentions and consequences,"Adapted from National Institute on Alcohol Abuse and Alcoholism (NIAAA). (N.d.). National Epidemiologic Survey on Alcohol and Related Conditions-III (NESARC-III). Rockville, MD: National Institutes of Health. Alcohol Use Disorder and Associated Disabilities Interview Schedule (AUDADIS-5), Section 2A - Alcohol Consumption"
+,alc_att_1,Alcohol attitudes,"Adapted from Ajzen, I. (2006). Constructing a theory of planned behavior questionnaire."
+,alc_att_2,Alcohol attitudes,"Adapted from Ajzen, I. (2006). Constructing a theory of planned behavior questionnaire."
+,alc_norm,Alcohol norms,"Adapted from Ajzen, I. (2006). Constructing a theory of planned behavior questionnaire."
+,alc_change,Alcohol Readiness to Change Ruler,"LaBrie, J. W., Quinlan, T., Schiffman, J. E., & Earleywine, M. E. (2005). Performance of alcohol and safer sex change rulers compared with readiness to change questionnaires. Psychology of Addictive Behaviors, 19(1), 112."
+1,ERQ,Emotion Regulation Questionnaire (ERQ),"Gross, J. J., & John, O. P. (2003). Individual differences in two emotion regulation processes: implications for affect, relationships, and well-being. Journal of personality and social psychology, 85(2), 348."
+1,FS,Flourishing Scale,"Diener, E., Wirtz, D., Tov, W., Kim-Prieto, C., Choi, D., Oishi, S., & Biswas-Diener, R. (2009). New measures of well-being: Flourishing and positive and negative feelings. Social Indicators Research, 39, 247-266."
+,social_media1,Social media use,
+,social_media2,Social media use,
+,social_media3,Social media use,
+,social_media4,Social media use,
+,social_media5,Social media use,
+,social_media6,Social media use,
+,numDrinks_high,Alcohol consumption perceptions,
+,numDrinks_low,Alcohol consumption perceptions,
+,numDrinks_med,Alcohol consumption perceptions,
+,groupAtt_alc,"Social group identify, attitudes, norms, and information ",
+,groupAtt_binge,"Social group identify, attitudes, norms, and information ",
+,group_respect,"Social group identify, attitudes, norms, and information ",
+,partnerGroup,"Social group identify, attitudes, norms, and information ",
+,grm_semester,"Social group identify, attitudes, norms, and information ",
+,grm_year,"Social group identify, attitudes, norms, and information ",
+,grm_memberStat,"Social group identify, attitudes, norms, and information ",
+,grm_time,"Social group identify, attitudes, norms, and information ",
+,grm_role,"Social group identify, attitudes, norms, and information ",
+,grm_identity,"Social group identify, attitudes, norms, and information ",
+1,drink_motives,Drinking Motive Questionnaire - Revised (DMQ-R),"Cooper, M. L. (1994). Motivations for Alcohol Use Among Adolescents: Development and Validation of a Four-Factor Model. Psychological Assessment, 6(2), 117-128."
+,wine_freq,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,wine_brands,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,wine_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,wine_week_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,beer_freq,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,beer_brands,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,beer_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,beer_week_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,spirits_freq,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,spirits_brands,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,spirits_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,spirits_week_amount,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,drink_speed,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,drunk_times,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,drunk_percent,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+,drink_intent,Alcohol Use Questionnaire,"Townshend, J. M., & Duka, T. (2002). Patterns of alcohol drinking in a population of young social drinkers: a comparison of questionnaire and diary measures. Alcohol and Alcoholism, 37(2), 187-192."
+1,DEQ_RA,Drinking Expectancy Questionnaire - Revised Adolescent Version (DEQ-RA),
+,psych_drugs_names,Psychotropic drug use,
+,psych_drugs_dose,Psychotropic drug use,
+,psych_drugs_length,Psychotropic drug use,
+,mhealth,Eligibility,
+,mhealth_diagnosis,Eligibility,
+,mhealth_meds,Eligibility,
+,drugs_today,Psychotropic drug use,
+,drugs_today_names,Psychotropic drug use,
+,drugs_today_time,Psychotropic drug use,
+,drugs_today_dose,Psychotropic drug use,
+,other_drugs,Psychotropic drug use,
+,other_drugs_names,Psychotropic drug use,
+,other_drugs_since,Psychotropic drug use,
+,other_drugs_freq,Psychotropic drug use,
+,other_drugs_dose,Psychotropic drug use,
+1,RPI,Resistance to Peer Influence (RPI),"Steinberg, L., & Monahan, K. C. (2007). Age differences in resistance to peer influence. Developmental psychology, 43(6), 1531."
+1,BIS_11,Barratt Impulsivity Scale (BIS-11),"Patton, J. H., Stanford, M. S., & Barratt, E. S. (1995). Factor structure of the Barratt impulsiveness scale. Journal of clinical psychology, 51(6), 768-774."
+1,DERS_S,Difficulties with Emotion Regulation Short Form (DERS-SF),"Kaufman, Xia, Fosco, Yaptangco, Skidmore, & Crowell (2015)"
+1,IRQ,Interpersonal Regulation Questionnaire (IRQ),Interpersonal Regulation Questionnaire (IRQ)
+1,IUS,Intolerance of Uncertainty Scale (IUS),"Buhr, K., & Dugas, M. K. (2002). The intolerance of uncertainty scale: Psychometric properties of the English version. Behaviour Research and Therapy, 40, 931-945."
+1,risk,Holt-Laury Risk Task,"Holt, C. A., & Laury, S. K. (2002). Risk aversion and incentive effects. American economic review, 92(5), 1644-1655. DOI: 10.1257/000282802762024700"
+1,PILS_1,Purpose in Life Scale,"Adapted from Ryff, C. D. (1989). Happiness is everything, or is it? Explorations on the meaning of psychological well-being. Journal of Personality and Social Psychology, 57(6), 1069."
+1,PILS_2,Purpose in Life Scale,"Adapted from Ryff, C. D. (1989). Happiness is everything, or is it? Explorations on the meaning of psychological well-being. Journal of Personality and Social Psychology, 57(6), 1069."
+1,MAAS,Mindful Attention Awareness Scale (MAAS),"Brown, K.W. & Ryan, R.M. (2003). The benefits of being present: Mindfulness and its role in psychological well-being. Journal of Personality and Social Psychology, 84, 822-848."
+1,SJS,System Justification Scale,"Kay, A. C., & Jost, J. T. (2003). Complementary Justice: Effects of ""poor but happy"" and ""poor but honest"" stereotype exemplars on system justification and implicit activation of the justice motive. Journal of Personality and Social Psychology, 85(5), 823Ð837. https://doi.org/10.1037/0022-3514.85.5.823"
+1,IRI,Interpersonal Reactivity Index (IRI),"Davis, M. H. (1980). A multidimensional approach to individual differences in empathy. JSAS Catalog of Selected Documents in Psychology, 10, 85."
+1,ACS,Attentional Control Scale (ACS),"Derryberry, D., & Reed, M. A. (2002). Anxiety-related attentional biases and their regulation by attentional control. Journal of abnormal psychology, 111(2), 225."
+1,IBER,Implicit Theories of Emotion Scale (ITES),"Tamir M, John OP, Srivastava S, Gross JJ. Implicit theories of emotion: Affective and social outcomes across a major life transition. J Personality Soc Psychol. 2007 Apr;92(4):731."
+1,STAI_state,State Trait Anxiety Scale (STAI-6),"Spielberger CD. Manual for the State-Trait Anxiety Inventory. Palo Alto, CA: Consulting Psychologists; 1983.; Marteau TM and Bekker H. The development of a six-item short-form of the state scale of the Spielberger State-Trait Anxiety Inventory (STAI). British Journal of Clinical Psychology.1992;31:301-30"
+1,IAS,Interaction Anxiousness Scale (IAS-3),"Webster, G., & Nichols, A. L. (2015). Designing a Brief Measure of Social Anxiety: Psychometric Support for a Three-Item Version of the Interaction An... Personality and Individual Differences, 79, 110-115."
+1,CES_D,Center for Epidemiologic Studies Depression Scale (CESD-R-10),"Radloff, L. S. (1977). The CES-D scale: A self report depression scale for research in the general population. Applied Psychological Measurements, 1, 385-401; Bjšrgvinsson, T., Kertz, S.J., Bigda-Peyton, J.S., McCoy, K.L., Aderka, I.M. (2013). Psychometric properties of the CES-D-10 in a psychiatric sample. Assessment, 20, 429-436."
+1,ULS,UCLA Loneliness Scale (ULS-4),"Russell, D., Peplau, L. A., & Cutrona, C. E. (1980). The revised UCLA Loneliness Scale: concurrent and discriminant validity evidence. Journal of personality and social psychology, 39(3), 472."
+,weekday_wake,Sleep and wake times,
+,weekend_wake,Sleep and wake times,
+,weekday_bedtime,Sleep and wake times,
+,weekend_bedtime,Sleep and wake times,
+,affect,Post-scan survey,
+,react1,Post-scan survey,
+,react2,Post-scan survey,
+,mindful1,Post-scan survey,
+,mindful2,Post-scan survey,
+,perspective1,Post-scan survey,
+,perspective2,Post-scan survey,
+,grm_member,"Social group identify, attitudes, norms, and information ",
+,social_self_freq,Social interaction survey,
+,social_self_qual,Social interaction survey,
+,social_self_weekend,Social interaction survey,
+,social_self_weekday,Social interaction survey,
+,social_media_1,Social media use,
+,social_media_2_x1,Social media use,
+,social_media_2_x2,Social media use,
+,social_media_2_x3,Social media use,
+,social_media_2_x4,Social media use,
+,social_media_2_x5,Social media use,
+,social_media_2_x6,Social media use,
+,social_media_3,Social media use,
+,social_media_4,Social media use,
+,social_media_5_1,Social media use,
+,social_media_5_2,Social media use,
+,social_media_5_3,Social media use,
+,social_media_5_4,Social media use,
+,social_media_5_5,Social media use,
+,social_media_5_6,Social media use,
+,social_media,Social media use,
+,housing_current,Housing survey,
+,housing_country,Housing survey,
+,housing_city,Housing survey,
+,housing_num_member,Housing survey,
+,housing_risk_self,Housing survey,
+,housing_risk_houseme,Housing survey,
+,housing_relation,Housing survey,
+,housing_satis,Housing survey,
+,housing_tense,Housing survey,
+,housing_change,Housing survey,
+,housing_member_fut,Housing survey,
+,housing_future_rela,Housing survey,
+,physdis_1,Physical distancing survey,
+,physdis_2,Physical distancing survey,
+,physdis,Physical distancing survey,
+,physdis_intention,Physical distancing survey,
+,physdis_norm_close,Physical distancing survey,
+,physdis_norm_town,Physical distancing survey,
+1,coping,Perceived risk and coping,
+,covid_stress_self,COVID-19 stressors,
+,covid_stress_family,COVID-19 stressors,
+,covid_stress_friend,COVID-19 stressors,
+,covid_stressor_finan,COVID-19 stressors,
+1,covid_panas,Positive and Negative Affect Schedule (PANAS),"Watson, D., Clark, L. A., & Tellegen, A. (1988). Development and validation of brief measures of positive and negative affect: the PANAS scales. Journal of personality and social psychology, 54(6), 1063."
+,pos_neg_mood,COVID-19 affect change,
+,SISE,Single Item Self-Esteem scale (SISE),"Robins, R. W., Hendin, H. M., & Trzesniewski, K. H. (2001). Measuring Global Self-Esteem: Construct Validation of a Single-Item Measure and the Rosenberg Self-Esteem Scale. Personality and Social Psychology Bulletin, 27, 151-161."
+1,purpose_in_life2,Purpose in Life Scale,"Adapted from Ryff, C. D. (1989). Happiness is everything, or is it? Explorations on the meaning of psychological well-being. Journal of Personality and Social Psychology, 57(6), 1069."
+1,social_connect,Social Connectedness Scale,"Lee, R. M., & Robbins, S. B. (1995). Measuring belongingness: The social connectedness and the social assurance scales. Journal of counseling psychology, 42(2), 232."
+1,pos_emo_reg1,Positive Emotion Regulation,"Adapted from Nelis, D., Quoidbach, J., Hansenne, M., & Mikolajczak, M. (2011). Measuring individual differences in emotion regulation: The Emotion Regulation Profile-Revised (ERP-R). Psychologica Belgica, 51(1), 49. https://doi.org/10.5334/pb-51-1-49"
+1,pos_emo_reg2,Positive Emotion Regulation,"Adapted from Nelis, D., Quoidbach, J., Hansenne, M., & Mikolajczak, M. (2011). Measuring individual differences in emotion regulation: The Emotion Regulation Profile-Revised (ERP-R). Psychologica Belgica, 51(1), 49. https://doi.org/10.5334/pb-51-1-49"
+1,resilience,Connor-Davidson Resilience Scale (CD-RISC),"Connor, K. M., & Davidson, J. R. T. (2003). Development of a new resilience scale: The Connor-Davidson Resilience Scale (CD-RISC). Depression and Anxiety, 18(2), 76Ð82. https://doi.org/10.1002/da.10113"
+1,IAF,Index of Autonomous Functioning (IAF),"Weinstein, N., Przybylski, A. K., & Ryan, R. M. (2012). The index of autonomous functioning: Development of a scale of human autonomy. Journal of Research in Personality, 46(4), 397-413."
+1,A5dcr,Five-Dimensional Curiosity Scale Revised (5DCR),"Kashdan, T. B., Disabato, D. J., Goodman, F. R., & McKnight, P. E. (2020). The Five-Dimensional Curiosity Scale Revised (5DCR): Briefer subscales while separating overt and covert social curiosity. Personality and Individual Differences, 157, 109836."
+1,SRHI,Self-Report Habit Index (SRHI),"Verplanken, B., & Orbell, S. (2003). Reflections on Past Behavior: A Self-Report Index of Habit Strength1. Journal of Applied Social Psychology, 33(6), 1313Ð1330. doi: 10.1111/j.1559-1816.2003.tb01951.x"
+,diet_self,Dieting efficacy and norms,"Adapted from Churchill, S., Pavey, L., & Sparks, P. (2019). The impact of autonomy_framed and control_framed implementation intentions on snacking behaviour: The moderating effect of eating self_efficacy. Applied Psychology: Health and Well_Being, 11(1), 42-58."
+,diet_group,Dieting efficacy and norms,"Adapted from Churchill, S., Pavey, L., & Sparks, P. (2019). The impact of autonomy_framed and control_framed implementation intentions on snacking behaviour: The moderating effect of eating self_efficacy. Applied Psychology: Health and Well_Being, 11(1), 42-58."
+,height,Demographics,
+,cig_4,Cigarette and e-cigarette use,"Centers for Disease Control and Prevention. (2022, March 14). National Youth Tobacco Survey (NYTS). Centers for Disease Control and Prevention. Retrieved July 11, 2022, from https://www.cdc.gov/tobacco/data_statistics/surveys/nyts/index.htm "
+1,IPAQ,International Physical Activity Questionnaire (IPAQ),"Booth, M.L. (2000). Assessment of Physical Activity: An International Perspective. Research Quarterly for Exercise and Sport, 71 (2): s114-20. Other"
+,pol_ori1,Political orientation,"GSS Data explorer: NORC at the University of Chicago. GSS Data Explorer | NORC at the University of Chicago. (n.d.). Retrieved July 22, 2022, from https://gssdataexplorer.norc.org/variables/179/vshow"
+,pol_ori2,Political orientation,"GSS Data explorer: NORC at the University of Chicago. GSS Data Explorer | NORC at the University of Chicago. (n.d.). Retrieved July 22, 2022, from https://gssdataexplorer.norc.org/variables/179/vshow"
+1,TIPI,Ten-Item Personality Inventory (TIPI),"Ehrhart, M. G., Ehrhart, K. H., Roesch, S. C., Chung-Herrera, B. G., Nadler, K., & Bradshaw, K. (2009). Testing the latent factor structure and construct validity of the Ten-Item Personality Inventory. Personality and individual Differences, 47(8), 900-905."
+1,FTP,Future Time Perspective Scale (FTP) ,"Lang, F. R., & Carstensen, L. L. (2002). Time counts: future time perspective, goals, and social relationships. Psychology and aging, 17(1), 125."
+1,LOTR,Revised Life Orientation Test (LOT-R),"Scheier, M. F., Carver, C. S., & Bridges, M. W. (1994). Distinguishing optimism from neuroticism (and trait anxiety, self-mastery, and self-esteem): a reevaluation of the Life Orientation Test. Journal of personality and social psychology, 67(6), 1063."

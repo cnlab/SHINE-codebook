@@ -1,0 +1,276 @@
+---
+title: "SHINE study codebook"
+author: "Dani Cosme"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_folding: hide
+    df_print: paged
+    highlight: tango
+    theme: united
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+options(scipen = 999)
+```
+
+```{r, include = FALSE}
+# prep
+# load packages
+if (!require(pacman)) {
+  install.packages('pacman')
+}
+
+pacman::p_load(tidyverse, haven, sjlabelled, knitr)
+
+# load data
+baseline = read_sav("surveys/baseline.sav")
+prescan = read_sav("surveys/prescan.sav")
+postscan = read_sav("surveys/postscan.sav")
+covid = read_sav("surveys/covid.sav")
+followup_6months = read_sav("surveys/followup_6months.sav")
+followup_12months = read_sav("surveys/followup_12months.sav")
+
+ignore_items = read.csv("ignore_items.csv", stringsAsFactors = FALSE)
+item_info = read.csv("items_info.csv", stringsAsFactors = FALSE)
+missing = read.csv("missing.csv", stringsAsFactors = FALSE) %>%
+  mutate(item = as.character(item),
+         choice_options = as.list(choice_options))
+
+# tidy data
+choice_options = enframe(get_labels(baseline)) %>% mutate(session = "baseline") %>%
+  bind_rows(enframe(get_labels(prescan)) %>% mutate(session = "prescan")) %>%
+  bind_rows(enframe(get_labels(postscan)) %>% mutate(session = "postscan")) %>%
+  bind_rows(enframe(get_labels(covid)) %>% mutate(session = "covid")) %>%
+  bind_rows(enframe(get_labels(followup_6months)) %>% mutate(session = "followup_6months")) %>%
+  bind_rows(enframe(get_labels(followup_12months)) %>% mutate(session = "followup_12months")) %>%
+  rename("choice_options" = value)
+
+codebook_all = enframe(get_label(baseline)) %>% mutate(session = "baseline") %>%
+  bind_rows(enframe(get_label(prescan)) %>% mutate(session = "prescan")) %>%
+  bind_rows(enframe(get_label(postscan)) %>% mutate(session = "postscan")) %>%
+  bind_rows(enframe(get_label(covid)) %>% mutate(session = "covid")) %>%
+  bind_rows(enframe(get_label(followup_6months)) %>% mutate(session = "followup_6months")) %>%
+  bind_rows(enframe(get_label(followup_12months)) %>% mutate(session = "followup_12months")) %>%
+  left_join(., choice_options) %>%
+  extract(value, c("instruction", "item_text"), "(.*) - (.*)", remove = FALSE) %>%
+  mutate(instruction = ifelse(is.na(instruction), value, instruction),
+         name = gsub("Q64", "ERQ", name),
+         name = gsub("erq_1", "ERQ", name),
+         name = gsub("Q75", "fs", name),
+         name = gsub("Q31", "drink_intent", name),
+         name = gsub("Q33", "alc_change", name),
+         name = gsub("Q38|purpose_in_life1", "PILS_1", name),
+         name = gsub("psychDrugs", "psych_drugs", name),
+         name = gsub("loneliness_UCLA|ucla", "ULS", name),
+         name = gsub("flourishing|fs|fs_1", "FS", name),
+         name = gsub("cesd|Q70", "CES_D", name),
+         name = gsub("irq", "IRQ", name),
+         name = gsub("lotr", "LOTR", name),
+         name = gsub("ftp", "FTP", name),
+         name = gsub("sise", "SISE", name),
+         name = gsub("srhi", "SRHI", name),
+         name = gsub("ipaq", "IPAQ", name),
+         name = gsub("pls", "PILS", name),
+         name = gsub("stai", "STAI_state", name),
+         name = gsub("intolerance", "IUS", name),
+         name = gsub("autonomy", "IAF", name),
+         name = gsub("IPAQ", "IPAQ_", name),
+         name = gsub("tipi", "TIPI", name),
+         item_text = gsub("Alpha Phi Omega", "[group]", item_text),
+         item_text = gsub("Field-group", "group", item_text),
+         instruction = gsub("from 1 (not at all) to 7 (very much).", "from 1(not at all) to 7(very much)", instruction),
+         instruction = gsub("Alpha Phi Omega", "[group]", instruction),
+         instruction = gsub("Field-group", "group", instruction),
+         choice_options = ifelse(name %in% c("grm_role", "eyes_rx2", "grm_year", "grm_memberStat", "housing_city",
+                                             "housing_country", "perspective1", "mindful1", "react1", "physdis",
+                                             "spirits_brands", "wine_brands", "beer_brands", "weight", "height",
+                                             "psych_drugs_names", "psych_drugs_dose", "psych_drugs_length"), NA, choice_options),
+         choice_options = ifelse(grepl("IPAQ|other_drugs|mhealth_|drugs_today_", name), NA, choice_options),
+         choice_options = ifelse(grepl("ladder", name), list(c("Off", "On")), choice_options)) %>%
+  filter(!name %in% ignore_items$name & !grepl("TEXT|photo", name)) %>%
+  extract(name, c("survey", "item"), c("(.*)_([0-9]+)$"), remove = FALSE) %>%
+  mutate(survey = ifelse(is.na(survey), name, survey)) %>%
+  select(-name, -value)
+
+# fix indiviudal survey information
+rpi = codebook_all %>%
+  filter(grepl("RPI", survey)) %>%
+  mutate(survey = sprintf("%s_%s", survey, item)) %>%
+  extract(survey, c("survey", "item"), "(RPI)_(.*)")
+
+prc_if = codebook_all %>%
+  filter(grepl("prc|^if_", survey)) %>%
+  mutate(item_text = "[name]",
+         item = "1") %>%
+  unique()
+
+friendly_universe = codebook_all %>%
+  filter(grepl("fu_", survey)) %>%
+  mutate(item_text = "[name]",
+         item = "1",
+         choice_options = ifelse(grepl("age|category|networkname", survey), NA, choice_options)) %>%
+  filter(!grepl("fu_channel_[2-9]|fu_channel_[1]+", survey)) %>%
+  unique()
+
+full_network_survey = codebook_all %>%
+  filter(grepl("fns|alcMost|closest|alcLeast|close_risk|risk_notclose", survey)) %>%
+  mutate(instruction = gsub("\\?.*", "", instruction),
+         item_text = "[name]",
+         item = "1",
+         choice_options = ifelse(grepl("^alc", survey), choice_options, NA)) %>%
+  unique()
+
+codebook = codebook_all %>%
+  filter(!grepl("RPI|prc|^if_|fns|alcMost|closest|alcLeast|close_risk|risk_notclose|fu_", survey)) %>%
+  filter(!survey %in% missing$survey) %>%
+  bind_rows(., rpi, prc_if, missing) %>%
+  filter(!grepl("close_risk|risk_notclose", survey) & !(grepl("prc", survey) & grepl("NULL|1", choice_options))) %>%
+  mutate(single_item = ifelse(is.na(item_text) | item_text == "Selected Choice" | survey == "alc_change", 1, 0),
+         item_text = ifelse(single_item == 1, instruction, item_text),
+         item_text = gsub("Selected Choice ", "", item_text),
+         item = ifelse(item_text == "I lead a purposeful and meaningful life", 1, item),
+         item = ifelse(single_item == 1, NA, item),
+         instruction = ifelse(single_item == 1, "", instruction)) %>%
+  select(-single_item) %>%
+  left_join(., item_info) %>%
+  select(survey_name, survey_citation, survey, everything())
+
+```
+
+# full network codebook
+```{r}
+full_network_survey %>%
+  filter(!survey %in% missing$survey) %>%
+  DT::datatable(filter = "top")
+```
+
+# friendly universe codebook
+```{r}
+friendly_universe %>%
+  DT::datatable(filter = "top")
+```
+
+# survey codebook {.tabset}
+```{r, include = FALSE}
+print_chunk = function(scales) {
+  for (variable in scales){
+    
+    data_scale = data %>%
+      filter(survey_name == !!variable)
+    
+    surveys = unique(data_scale$survey)
+    
+    citation = as.array(unique(data_scale$survey_citation)[!unique(data_scale$survey_citation) == ""])
+    
+    instructions_all = as.array(unique(data_scale$instruction)[!unique(data_scale$instruction) == ""])
+    
+    items = as.array(unique(data_scale$item)[!unique(data_scale$item) == ""])
+    
+    same_scale = data_scale %>%
+      select(same_instructions) %>%
+      unique()
+    
+    data_print = data_scale %>%
+      select(-survey_name, -survey_citation, -session, -same_instructions)
+  
+    cat(paste0('\n\n### ', variable, '{.tabset}\n\n')) 
+    
+    if (length(citation) == 1) {
+      
+      cat(paste0("**Citation**\n\n"), citation, "\n\n")
+      
+      }
+    
+    
+    if (nrow(same_scale) == 1 & length(instructions_all) == 1) {
+      cat(paste0("**Instructions**\n\n"), instructions_all, "\n\n")
+      
+      cat('\n\n<!-- -->\n\n')
+      
+      cat(knitr::knit_print(DT::datatable(data_print %>%
+                                          select(-instruction),
+                                          width = "100%")))
+      
+    } else if (is_empty(instructions_all)) {
+      cat(knitr::knit_print(DT::datatable(data_print %>%
+                                          select(-instruction),
+                                          width = "100%")))
+    } else if (is.na(items)) {
+      cat(knitr::knit_print(DT::datatable(data_print %>%
+                                          select(-instruction, -item),
+                                          width = "100%")))      
+    } else {
+      cat(knitr::knit_print(DT::datatable(data_print,
+                                          width = "100%")))
+    }
+  }
+}
+```
+
+## baseline {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "baseline")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
+
+## prescan {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "prescan")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
+
+## COVID-19 {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "covid")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
+
+## postscan {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "postscan")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
+
+## followup: 6 months {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "followup_6months")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
+
+## followup: 12 months {.tabset}
+```{r, results='asis'}
+data = codebook %>%
+  filter(session == "followup_12months")
+
+scales = unique(data$survey_name)
+
+print_chunk(scales)
+```
