@@ -143,15 +143,19 @@ codebook = codebook_all %>%
   bind_rows(., rpi, prc_if, missing) %>%
   filter(!grepl("close_risk|risk_notclose", survey)) %>%
   filter(!(grepl("prc", survey) & grepl("NULL", choice_options))) %>%
-  mutate(single_item = ifelse(is.na(item_text) | item_text == "Selected Choice" | survey == "alc_change", 1, 0),
+  mutate(single_item = ifelse((is.na(item_text) | item_text == "Selected Choice" | survey == "alc_change"), 1, 0),
          item_text = ifelse(single_item == 1, instruction, item_text),
          item_text = gsub("Selected Choice ", "", item_text),
          item = ifelse(item_text == "I lead a purposeful and meaningful life", 1, item),
+         single_item = ifelse(grepl("IPAQ", survey), 0, single_item), 
          item = ifelse(single_item == 1, NA, item),
          instruction = ifelse(single_item == 1, "", instruction)) %>%
   select(-single_item) %>%
   left_join(., item_info) %>%
-  select(survey_name, survey_citation, survey, everything())
+  group_by(session, survey) %>%
+  mutate(item = ifelse(!is.na(item) & !survey == "RPI", row_number(), NA)) %>%
+  select(survey_name, survey_citation, survey, everything()) %>%
+  ungroup()
 
 ```
 
@@ -159,6 +163,8 @@ codebook = codebook_all %>%
 
 # Full network survey 
 Codebook for items in the full network survey. Participants saw members of their campus social group and made nominations. 
+
+<br><br>
 
 ```{r, echo = FALSE}
 full_network_survey %>%
@@ -172,6 +178,8 @@ full_network_survey %>%
 # Friendly Universe ego-network
 Codebook for items in the self-generated [Friendly Universe ego-network survey](https://github.com/ruipei1/friendlyUniverse). 
 
+<br><br>
+
 ```{r, echo = FALSE}
 friendly_universe %>%
   DT::datatable(filter = "top")
@@ -181,6 +189,8 @@ friendly_universe %>%
 
 # Non-network questionnaires {.tabset}
 Codebook for questionnaire items. Items rated using slider scales are noted and anchor points are provided.
+
+<br><br>
 
 ```{r, include = FALSE}
 print_chunk = function(scales) {
@@ -197,36 +207,47 @@ print_chunk = function(scales) {
     
     items = as.array(unique(data_scale$item)[!unique(data_scale$item) == ""])
     
-    same_scale = data_scale %>%
-      select(same_instructions) %>%
-      unique()
+    same_scale = unique(data_scale$same_instructions)
     
     data_print = data_scale %>%
       select(-survey_name, -survey_citation, -session, -same_instructions)
-  
+    
     cat(paste0('\n\n### ', variable, '{.tabset}\n\n')) 
+    
+    cat('<br>')
     
     if (length(citation) == 1) {
       
       cat(paste0("**Citation**\n\n"), citation, "\n\n")
       
+      cat('<br>')
+      
       }
     
     
-    if (nrow(same_scale) == 1 & length(instructions_all) == 1) {
+    if (!is.na(same_scale) & length(instructions_all) == 1) {
       cat(paste0("**Instructions**\n\n"), instructions_all, "\n\n")
       
-      cat('\n\n<!-- -->\n\n')
+      cat('<br>')
       
       cat(knitr::knit_print(DT::datatable(data_print %>%
                                           select(-instruction),
                                           width = "100%")))
       
-    } else if (is_empty(instructions_all)) {
+    } else if (length(instructions_all) == 1 & !instructions_all == "" & length(items) == 1) {
+      cat(paste0("**Instructions**\n\n"), instructions_all, "\n\n")
+      
+      cat('<br>')
+      
+      cat(knitr::knit_print(DT::datatable(data_print %>%
+                                          select(-instruction, -item),
+                                          width = "100%")))
+      
+    } else if (instructions_all == "" & length(items) > 1) {
       cat(knitr::knit_print(DT::datatable(data_print %>%
                                           select(-instruction),
                                           width = "100%")))
-    } else if (is.na(items) & length(items) == 1) {
+    } else if (instructions_all == "" & length(items) == 1) {
       cat(knitr::knit_print(DT::datatable(data_print %>%
                                           select(-instruction, -item),
                                           width = "100%")))      
@@ -239,6 +260,9 @@ print_chunk = function(scales) {
 ```
 
 ## baseline {.tabset}
+
+<br><br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "baseline")
@@ -249,6 +273,9 @@ print_chunk(scales)
 ```
 
 ## prescan {.tabset}
+
+<br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "prescan")
@@ -259,6 +286,9 @@ print_chunk(scales)
 ```
 
 ## COVID-19 {.tabset}
+
+<br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "covid")
@@ -269,6 +299,9 @@ print_chunk(scales)
 ```
 
 ## postscan {.tabset}
+
+<br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "postscan")
@@ -279,6 +312,9 @@ print_chunk(scales)
 ```
 
 ## followup: 6 months {.tabset}
+
+<br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "followup_6months")
@@ -289,6 +325,9 @@ print_chunk(scales)
 ```
 
 ## followup: 12 months {.tabset}
+
+<br>
+
 ```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "followup_12months")
