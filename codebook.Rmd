@@ -42,7 +42,6 @@ ignore_items = read.csv("ignore_items.csv", stringsAsFactors = FALSE)
 item_info = read.csv("items_info.csv", stringsAsFactors = FALSE)
 missing = read.csv("missing.csv", stringsAsFactors = FALSE) %>%
   mutate(item = as.character(item))
-rpi = read.csv("rpi.csv", stringsAsFactors = FALSE)
 
 # tidy data
 choice_options = enframe(get_labels(baseline)) %>% mutate(session = "baseline") %>%
@@ -110,6 +109,8 @@ codebook_all = enframe(get_label(baseline)) %>% mutate(session = "baseline") %>%
   select(-name, -value)
 
 # fix individual survey information
+rpi = read.csv("rpi.csv", stringsAsFactors = FALSE)
+
 prc_if = codebook_all %>%
   filter(grepl("prc|^if_", survey)) %>%
   mutate(item_text = "[name]",
@@ -120,19 +121,21 @@ friendly_universe = codebook_all %>%
   filter(grepl("fu_", survey)) %>%
   mutate(item_text = "[name]",
          item = NA,
-         choice_options = ifelse(grepl("age|category|networkname", survey), NA, choice_options)) %>%
+         choice_options = ifelse(grepl("age|category|networkname", survey), "text entry", choice_options)) %>%
   filter(!grepl("fu_channel_[2-9]|fu_channel_[1]+", survey)) %>%
   unique() %>%
   select(-item)
 
-full_network_survey = codebook_all %>%
-  filter(grepl("fns|alcMost|closest|alcLeast|close_risk|risk_notclose|partnerGroup", survey)) %>%
-  mutate(instruction = gsub("\\?.*", "", instruction),
-         item_text = "[name]",
-         item = NA,
-         choice_options = ifelse(grepl("^alc", survey), choice_options, NA)) %>%
-  unique() %>%
-  select(-item)
+full_network_survey = read.csv("fns.csv", stringsAsFactors = FALSE)
+
+# full_network_survey = codebook_all %>%
+#   filter(grepl("fns|alcMost|closest|alcLeast|close_risk|risk_notclose|partnerGroup", survey)) %>%
+#   mutate(instruction = gsub("\\?.*", "", instruction),
+#          item_text = "[name]",
+#          item = NA,
+#          choice_options = ifelse(grepl("^alc|amount|freq|adjust|face|phone|text|closest_interact|partnerGroup", survey), choice_options, NA)) %>%
+#   unique() %>%
+#   select(-item)
 
 codebook = codebook_all %>%
   filter(!grepl("RPI|prc|^if_|fns|alcMost|closest|alcLeast|close_risk|risk_notclose|fu_|partnerGroup", survey)) %>%

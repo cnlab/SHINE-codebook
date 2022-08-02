@@ -1,0 +1,87 @@
+survey,instruction,item_text,session,choice_options
+alcLeast_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],baseline,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcLeast_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_6months,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcLeast_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_12months,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcLeast_freq,"During the last year, how often did this person usually have any kind of drink containing alcohol",[name],baseline,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+alcLeast_freq,"During the last year, how often did this person usually have any kind of drink containing alcohol",[name],followup_6months,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+alcLeast_freq,"During the last year, how often did this person usually have any kind of drink containing alcohol",[name],followup_12months,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+alcMost_amount,"During the last 6 months, how many alcoholic drinks do you think each person had on a typical day when they drank alcohol",[name],baseline,"(never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcMost_amount,"During the last 6 months, how many alcoholic drinks do you think each person had on a typical day when they drank alcohol",[name],followup_6months,"(never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcMost_amount,"During the last 6 months, how many alcoholic drinks do you think each person had on a typical day when they drank alcohol",[name],followup_12months,"(never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+alcMost_freq,"During the last 6 months, how often did this person usually have any kind of drink containing alcohol",[name],baseline,"Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+alcMost_freq,"During the last 6 months, how often did this person usually have any kind of drink containing alcohol",[name],followup_6months,"Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+alcMost_freq,"During the last 6 months, how often did this person usually have any kind of drink containing alcohol",[name],followup_12months,"Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+close_risk,What do you consider to be the probability of this person getting infected with COVID-19,[name],covid,"Slider: 1 - Extremely unlikely, 7 - Extremely likely"
+closest_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],baseline,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+closest_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_6months,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+closest_amount,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_12months,"Listed above, (never drinks) 0, 1, 2, 3-4, 5-6, 7-8, 9-11, 12-15, 16-18, 25+, 19-24"
+closest_freq,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],baseline,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+closest_freq,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_6months,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+closest_freq,"If you see the name of an individual who was already listed above, please select ""Listed above""",[name],followup_12months,"Listed above, Never drinks, 1-2x in the past 6 months, 3-5x in the past 6 months, 1x per month, 2-3x per month, 1x per week, 2x per week, 3-4x per week, 5-6x per week, daily"
+closest_interact,How recently did you interact with each person,[name],followup_6months,"Within the last week, More than a week ago but within the past month, More than a month ago but within the past 6 months, More than 6 months ago"
+closest_interact,How recently did you interact with each person,[name],followup_12months,"Within the last week, More than a week ago but within the past month, More than a month ago but within the past 6 months, More than 6 months ago"
+fns_adjust,How do you think you have been able to adjust emotionally to the challenges of the COVID-19 pandemic relative to this person,[name],covid,"Much worse, Worse, Slightly worse, Equally, Slightly better, Better, Much better"
+fns_adjust_2,How do you think you have been able to adjust emotionally to the challenges of the COVID-19 pandemic relative to this person,[name],covid,"Much worse, Worse, Slightly worse, Equally, Slightly better, Better, Much better"
+fns_alc_least_close,"Please rank these members in the order of closeness to you (1 = closest). If one of the names is yours, please place yourself at the bottom of the rank. ",[name],covid,nomination
+fns_alc_least_close2,"Please rank these members in the order of closeness to you (1 = closest). If one of the names is yours, please place yourself at the bottom of the rank. ",[name],covid,nomination
+fns_alc_least_close3,"Please rank these members in the order of closeness to you (1 = closest). If one of the names is yours, please place yourself at the bottom of the rank. ",[name],covid,nomination
+fns_alcLeast,Which group members drink the least alcohol,[name],baseline,nomination
+fns_alcLeast,Which group members drink the least alcohol,[name],covid,nomination
+fns_alcLeast,Which group members drink the least alcohol,[name],followup_6months,nomination
+fns_alcLeast,Which group members drink the least alcohol,[name],followup_12months,nomination
+fns_alcLeast2,Which group members drink the least alcohol,[name],covid,nomination
+fns_alcLeast3,Which group members of [group] drink the least alcohol,[name],covid,nomination
+fns_alcMost,Which group members drink the most alcohol,[name],baseline,nomination
+fns_alcMost,Which group members drink the most alcohol,[name],covid,nomination
+fns_alcMost,Which group members drink the most alcohol,[name],followup_6months,nomination
+fns_alcMost,Which group members drink the most alcohol,[name],followup_12months,nomination
+fns_closest,Which group members are you closest to,[name],baseline,nomination
+fns_closest,Which group members are you closest to,[name],covid,nomination
+fns_closest,Which group members are you closest to,[name],followup_6months,nomination
+fns_closest,Which group members are you closest to,[name],followup_12months,nomination
+fns_comeForBad,Which group members are most likely to come to you when something BAD happens to them,[name],baseline,nomination
+fns_comeForBad,Which group members are most likely to come to you when something BAD happens to them,[name],covid,nomination
+fns_comeForBad,Which group members are most likely to come to you when something BAD happens to them,[name],followup_6months,nomination
+fns_comeForBad,Which group members are most likely to come to you when something BAD happens to them,[name],followup_12months,nomination
+fns_covid_least,Which group members do you think are taking COVID-19 LEAST SERIOUSLY,[name],covid,nomination
+fns_covid_most,Which group members do you think are taking COVID-19 MOST SERIOUSLY,[name],covid,nomination
+fns_face,How recently did you interact with each person face-to-face,[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_face2,How recently did you interact with each person face-to-face,[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_goToBad,Which group members are you most likely to go to when something BAD happens to you,[name],baseline,nomination
+fns_goToBad,Which group members are you most likely to go to when something BAD happens to you,[name],covid,nomination
+fns_goToBad,Which group members are you most likely to go to when something BAD happens to you,[name],followup_6months,nomination
+fns_goToBad,Which group members are you most likely to go to when something BAD happens to you,[name],followup_12months,nomination
+fns_goToGood,Which group members are you most likely to go to when something GOOD happens to you,[name],baseline,nomination
+fns_goToGood,Which group members are you most likely to go to when something GOOD happens to you,[name],covid,nomination
+fns_goToGood,Which group members are you most likely to go to when something GOOD happens to you,[name],followup_6months,nomination
+fns_goToGood,Which group members are you most likely to go to when something GOOD happens to you,[name],followup_12months,nomination
+fns_influence,Who would you say are among those with the most influence over the other members,[name],baseline,nomination
+fns_influence,Who would you say are among those with the most influence over the other members,[name],covid,nomination
+fns_influence,Who would you say are among those with the most influence over the other members,[name],followup_6months,nomination
+fns_influence,Who would you say are among those with the most influence over the other members,[name],followup_12months,nomination
+fns_interact,Which group members did you interact with most recently,[name],baseline,nomination
+fns_interact,Which group members did you interact with face-to-face (in person) most recently,[name],covid,nomination
+fns_interact,Which group members did you interact with most recently,[name],followup_6months,nomination
+fns_interact,Which group members did you interact with most recently,[name],followup_12months,nomination
+fns_leaders,Who would you say are the leaders in this group,[name],baseline,nomination
+fns_leaders,Who would you say are the leaders in this group,[name],covid,nomination
+fns_leaders,Who would you say are the leaders in this group,[name],followup_6months,nomination
+fns_leaders,Who would you say are the leaders in this group,[name],followup_12months,nomination
+fns_like,Which group members do you like the most,[name],baseline,nomination
+fns_like,Which group members do you like the most,[name],covid,nomination
+fns_like,Which group members do you like the most,[name],followup_6months,nomination
+fns_like,Which group members do you like the most,[name],followup_12months,nomination
+fns_most,Which group members have you talked to most since leaving campus,[name],covid,nomination
+fns_notclose,Which group members are you least close to,[name],covid,nomination
+fns_phone,How recently did you interact with each person virtually by phone or video call,[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_phone2,How recently did you interact with each person virtually by phone or video call,[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_text,"How recently did you interact with each person by private text message (i.e., not group chat)",[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_text2,"How recently did you interact with each person by private text message (i.e., not group chat)",[name],covid,"Today, Yesterday, Within the past week, Within the past two weeks, Within the past month, More than a month ago"
+fns_virtual,"Which group members did you most recently interact with virtually (e.g., phone call, text message, social media, video chat, etc.)",[name],covid,nomination
+partnerGroup,Does your organization partner with another organization,[name],baseline,"yes, no"
+partnerGroup,Does your organization partner with another organization,[name],followup_6months,"yes, no"
+partnerGroup,Does your organization partner with another organization,[name],followup_12months,"yes, no"
+partnerGroup_closest,Which members of this partner organization are you closest to,[name],baseline,text entry
+partnerGroup_closest,Which members of this partner organization are you closest to,[name],followup_6months,text entry
+partnerGroup_closest,Which members of this partner organization are you closest to,[name],followup_12months,text entry
+risk_notclose,What do you consider to be the probability of this person getting infected with COVID-19,[name],covid,"Slider: 1 - Extremely unlikely, 7 - Extremely likely"
