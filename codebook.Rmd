@@ -41,8 +41,8 @@ followup_12months = read_sav("surveys/followup_12months.sav")
 ignore_items = read.csv("ignore_items.csv", stringsAsFactors = FALSE)
 item_info = read.csv("items_info.csv", stringsAsFactors = FALSE)
 missing = read.csv("missing.csv", stringsAsFactors = FALSE) %>%
-  mutate(item = as.character(item),
-         choice_options = as.list(choice_options))
+  mutate(item = as.character(item))
+rpi = read.csv("rpi.csv", stringsAsFactors = FALSE)
 
 # tidy data
 choice_options = enframe(get_labels(baseline)) %>% mutate(session = "baseline") %>%
@@ -89,50 +89,57 @@ codebook_all = enframe(get_label(baseline)) %>% mutate(session = "baseline") %>%
          instruction = gsub("from 1 (not at all) to 7 (very much).", "from 1(not at all) to 7(very much)", instruction),
          instruction = gsub("Alpha Phi Omega", "[group]", instruction),
          instruction = gsub("Field-group", "group", instruction),
+         instruction = ifelse(name == "spirits_freq", "On how many days per week do you drink spirits (whisky, vodka, gin, rum, etc - but not beer or wine)?", instruction),
+         instruction = ifelse(name == "CES_D", "Below is a list of some of the ways you may have felt or behaved. Please indicate how often you have felt this way during the past week by checking the appropriate box for each question.", instruction),
          choice_options = ifelse(name %in% c("grm_role", "eyes_rx2", "grm_year", "grm_memberStat", "housing_city",
                                              "housing_country", "perspective1", "mindful1", "react1", "physdis",
                                              "spirits_brands", "wine_brands", "beer_brands", "weight", "height",
                                              "psych_drugs_names", "psych_drugs_dose", "psych_drugs_length"), NA, choice_options),
          choice_options = ifelse(grepl("IPAQ|other_drugs|mhealth_|drugs_today_", name), NA, choice_options),
-         choice_options = ifelse(grepl("ladder", name), list(c("Off", "On")), choice_options)) %>%
+         choice_options = ifelse(grepl("ladder", name), list(c("Off", "On")), choice_options),
+         choice_options = ifelse(name == "physdis_3", "text entry", choice_options),
+         choice_options = ifelse(name == "housing_member_fut", "text entry", choice_options),
+         choice_options = ifelse(instruction == "When did you join [group]?", "text entry", choice_options),
+         choice_options = as.character(choice_options),
+         choice_options = gsub("c\\(", "", choice_options),
+         choice_options = gsub("\\)$", "", choice_options),
+         choice_options = gsub('\\"', "", choice_options)) %>%
   filter(!name %in% ignore_items$name & !grepl("TEXT|photo", name)) %>%
   extract(name, c("survey", "item"), c("(.*)_([0-9]+)$"), remove = FALSE) %>%
   mutate(survey = ifelse(is.na(survey), name, survey)) %>%
   select(-name, -value)
 
-# fix indiviudal survey information
-rpi = codebook_all %>%
-  filter(grepl("RPI", survey)) %>%
-  mutate(survey = sprintf("%s_%s", survey, item)) %>%
-  extract(survey, c("survey", "item"), "(RPI)_(.*)")
-
+# fix individual survey information
 prc_if = codebook_all %>%
   filter(grepl("prc|^if_", survey)) %>%
   mutate(item_text = "[name]",
-         item = "1") %>%
+         item = NA) %>%
   unique()
 
 friendly_universe = codebook_all %>%
   filter(grepl("fu_", survey)) %>%
   mutate(item_text = "[name]",
-         item = "1",
+         item = NA,
          choice_options = ifelse(grepl("age|category|networkname", survey), NA, choice_options)) %>%
   filter(!grepl("fu_channel_[2-9]|fu_channel_[1]+", survey)) %>%
-  unique()
+  unique() %>%
+  select(-item)
 
 full_network_survey = codebook_all %>%
-  filter(grepl("fns|alcMost|closest|alcLeast|close_risk|risk_notclose", survey)) %>%
+  filter(grepl("fns|alcMost|closest|alcLeast|close_risk|risk_notclose|partnerGroup", survey)) %>%
   mutate(instruction = gsub("\\?.*", "", instruction),
          item_text = "[name]",
-         item = "1",
+         item = NA,
          choice_options = ifelse(grepl("^alc", survey), choice_options, NA)) %>%
-  unique()
+  unique() %>%
+  select(-item)
 
 codebook = codebook_all %>%
-  filter(!grepl("RPI|prc|^if_|fns|alcMost|closest|alcLeast|close_risk|risk_notclose|fu_", survey)) %>%
+  filter(!grepl("RPI|prc|^if_|fns|alcMost|closest|alcLeast|close_risk|risk_notclose|fu_|partnerGroup", survey)) %>%
   filter(!survey %in% missing$survey) %>%
   bind_rows(., rpi, prc_if, missing) %>%
-  filter(!grepl("close_risk|risk_notclose", survey) & !(grepl("prc", survey) & grepl("NULL|1", choice_options))) %>%
+  filter(!grepl("close_risk|risk_notclose", survey)) %>%
+  filter(!(grepl("prc", survey) & grepl("NULL", choice_options))) %>%
   mutate(single_item = ifelse(is.na(item_text) | item_text == "Selected Choice" | survey == "alc_change", 1, 0),
          item_text = ifelse(single_item == 1, instruction, item_text),
          item_text = gsub("Selected Choice ", "", item_text),
@@ -145,20 +152,33 @@ codebook = codebook_all %>%
 
 ```
 
-# full network codebook
-```{r}
+<br><br>
+
+# Full network survey 
+Codebook for items in the full network survey. Participants saw members of their campus social group and made nominations. 
+
+```{r, echo = FALSE}
 full_network_survey %>%
   filter(!survey %in% missing$survey) %>%
   DT::datatable(filter = "top")
 ```
 
-# friendly universe codebook
-```{r}
+<br><br><br><br>
+
+
+# Friendly Universe ego-network
+Codebook for items in the self-generated [Friendly Universe ego-network survey](https://github.com/ruipei1/friendlyUniverse). 
+
+```{r, echo = FALSE}
 friendly_universe %>%
   DT::datatable(filter = "top")
 ```
 
-# survey codebook {.tabset}
+<br><br><br><br>
+
+# Non-network questionnaires {.tabset}
+Codebook for questionnaire items. Items rated using slider scales are noted and anchor points are provided.
+
 ```{r, include = FALSE}
 print_chunk = function(scales) {
   for (variable in scales){
@@ -170,7 +190,7 @@ print_chunk = function(scales) {
     
     citation = as.array(unique(data_scale$survey_citation)[!unique(data_scale$survey_citation) == ""])
     
-    instructions_all = as.array(unique(data_scale$instruction)[!unique(data_scale$instruction) == ""])
+    instructions_all = as.array(unique(data_scale$instruction))
     
     items = as.array(unique(data_scale$item)[!unique(data_scale$item) == ""])
     
@@ -203,7 +223,7 @@ print_chunk = function(scales) {
       cat(knitr::knit_print(DT::datatable(data_print %>%
                                           select(-instruction),
                                           width = "100%")))
-    } else if (is.na(items)) {
+    } else if (is.na(items) & length(items) == 1) {
       cat(knitr::knit_print(DT::datatable(data_print %>%
                                           select(-instruction, -item),
                                           width = "100%")))      
@@ -216,7 +236,7 @@ print_chunk = function(scales) {
 ```
 
 ## baseline {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "baseline")
 
@@ -226,7 +246,7 @@ print_chunk(scales)
 ```
 
 ## prescan {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "prescan")
 
@@ -236,7 +256,7 @@ print_chunk(scales)
 ```
 
 ## COVID-19 {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "covid")
 
@@ -246,7 +266,7 @@ print_chunk(scales)
 ```
 
 ## postscan {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "postscan")
 
@@ -256,7 +276,7 @@ print_chunk(scales)
 ```
 
 ## followup: 6 months {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "followup_6months")
 
@@ -266,7 +286,7 @@ print_chunk(scales)
 ```
 
 ## followup: 12 months {.tabset}
-```{r, results='asis'}
+```{r, results='asis', echo = FALSE}
 data = codebook %>%
   filter(session == "followup_12months")
 
